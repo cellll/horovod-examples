@@ -23,7 +23,7 @@ parser.add_argument('--lr', type=float, default=1.0, metavar='LR',
                     help='learning rate (default: 1.0)')
 parser.add_argument('--log_dir', type=str, default='/tmp/output',
                     help='output directory')
-parser.add_argument('--dataset', type=str, default='/root/user_data/datasets/mnist/mnist.npz', help='input mnist dataset')
+parser.add_argument('--dataset', type=str, default='/tmp/mnist/mnist.npz', help='input mnist dataset')
 
 args = parser.parse_args()
 
