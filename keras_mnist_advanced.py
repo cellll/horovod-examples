@@ -23,7 +23,7 @@ parser.add_argument('--lr', type=float, default=1.0, metavar='LR',
                     help='learning rate (default: 1.0)')
 parser.add_argument('--log_dir', type=str, default='/tmp/output',
                     help='output directory')
-parser.add_argument('--dataset', type=str, default='/root/user_data/datasets/mnist-download/mnist.npz', help='input mnist dataset')
+parser.add_argument('--dataset', type=str, default='/root/user_data/datasets/mnist-npz/mnist.npz', help='input mnist dataset')
 
 args = parser.parse_args()
 
@@ -50,7 +50,10 @@ img_rows, img_cols = 28, 28
 dataset_dirpath = os.path.dirname(args.dataset)
 
 if not os.path.exists(dataset_dirpath):
-    os.makedirs(dataset_dirpath)
+    dataset_dirpath = '/tmp/data'
+    if not os.path.exists(dataset_dirpath):
+        os.makedirs(dataset_dirpath)
+    args.dataset = dataset_dirpath
 
 (x_train, y_train), (x_test, y_test) = mnist.load_data(path=args.dataset)
 
