@@ -47,15 +47,15 @@ epochs = args.epochs
 img_rows, img_cols = 28, 28
 
 # The data, shuffled and split between train and test sets
-dataset_dirpath = os.path.dirname(args.dataset)
+#dataset_dirpath = os.path.dirname(args.dataset)
 
-if not os.path.exists(dataset_dirpath):
-    dataset_dirpath = '/tmp/data'
-    if not os.path.exists(dataset_dirpath):
-        os.makedirs(dataset_dirpath)
-    args.dataset = dataset_dirpath
+#if not os.path.exists(dataset_dirpath):
+#    dataset_dirpath = '/tmp/data'
+#    if not os.path.exists(dataset_dirpath):
+#        os.makedirs(dataset_dirpath)
+#    args.dataset = dataset_dirpath
 
-(x_train, y_train), (x_test, y_test) = mnist.load_data(path=args.dataset)
+(x_train, y_train), (x_test, y_test) = mnist.load_data()
 
 # Determine how many batches are there in train and test sets
 train_batches = len(x_train) // batch_size
